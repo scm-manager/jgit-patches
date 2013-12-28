@@ -1,0 +1,28 @@
+# HG changeset patch
+# Parent abb29c77b41860d547a5dcfb4ff7ce5f469a9063
+
+diff -r abb29c77b418 pom.xml
+--- a/pom.xml	Sat Dec 28 15:15:33 2013 +0100
++++ b/pom.xml	Sat Dec 28 15:17:17 2013 +0100
+@@ -479,15 +479,14 @@
+ 
+   <distributionManagement>
+     <repository>
+-      <id>repo.eclipse.org</id>
+-      <name>JGit Maven Repository - Releases</name>
+-      <url>https://repo.eclipse.org/content/repositories/jgit-releases/</url>
++      <id>maven.scm-manager.org</id>
++      <name>scm-manager release repository</name>
++      <url>http://maven.scm-manager.org/nexus/content/repositories/releases</url>
+     </repository>
+     <snapshotRepository>
+-      <id>repo.eclipse.org</id>
+-      <name>JGit Maven Repository - Snapshots</name>
+-      <url>https://repo.eclipse.org/content/repositories/jgit-snapshots/</url>
+-      <uniqueVersion>true</uniqueVersion>
++      <id>maven.scm-manager.org</id>
++      <name>scm-manager snapshot repository</name>
++      <url>http://maven.scm-manager.org/nexus/content/repositories/snapshots</url>
+     </snapshotRepository>
+   </distributionManagement>
+ 
