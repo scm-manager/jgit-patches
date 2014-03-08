@@ -1,8 +1,9 @@
 # HG changeset patch
-# Parent b1836a5dc2945ee3e02b4aee9487dd552e76390e
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ant.test/pom.xml
---- a/org.eclipse.jgit.ant.test/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.ant.test/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+# Parent 44a8f1bb5b44d9c55c77b879fd1abd82250ee0de
+
+diff -r 44a8f1bb5b44 org.eclipse.jgit.ant.test/pom.xml
+--- a/org.eclipse.jgit.ant.test/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.ant.test/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -10,7 +11,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ant.test/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -68,19 +68,19 @@
      </dependency>
@@ -35,9 +36,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ant.test/pom.xml
        <artifactId>org.eclipse.jgit.ant</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ant/pom.xml
---- a/org.eclipse.jgit.ant/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.ant/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.ant/pom.xml
+--- a/org.eclipse.jgit.ant/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.ant/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -46,7 +46,7 @@
  	<modelVersion>4.0.0</modelVersion>
  
@@ -45,7 +46,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ant/pom.xml
 -		<groupId>org.eclipse.jgit</groupId>
 +		<groupId>sonia.jgit</groupId>
  		<artifactId>org.eclipse.jgit-parent</artifactId>
- 		<version>3.2.0.201312181205-r</version>
+ 		<version>3.3.0.201403021825-r</version>
  	</parent>
 @@ -64,7 +64,7 @@
  
@@ -56,9 +57,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ant/pom.xml
  			<artifactId>org.eclipse.jgit</artifactId>
  			<version>${project.version}</version>
  		</dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.archive/pom.xml
---- a/org.eclipse.jgit.archive/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.archive/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.archive/pom.xml
+--- a/org.eclipse.jgit.archive/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.archive/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -66,7 +67,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.archive/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -58,7 +58,7 @@
  
@@ -86,9 +87,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.archive/pom.xml
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.console/pom.xml
---- a/org.eclipse.jgit.console/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.console/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.console/pom.xml
+--- a/org.eclipse.jgit.console/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.console/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -50,7 +50,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -96,7 +97,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.console/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -68,7 +68,7 @@
  
@@ -107,9 +108,30 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.console/pom.xml
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.http.server/pom.xml
---- a/org.eclipse.jgit.http.server/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.http.server/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.http.apache/pom.xml
+--- a/org.eclipse.jgit.http.apache/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.http.apache/pom.xml	Sat Mar 08 15:40:15 2014 +0100
+@@ -46,7 +46,7 @@
+ 	<modelVersion>4.0.0</modelVersion>
+ 
+ 	<parent>
+-		<groupId>org.eclipse.jgit</groupId>
++		<groupId>sonia.jgit</groupId>
+ 		<artifactId>org.eclipse.jgit-parent</artifactId>
+ 		<version>3.3.0.201403021825-r</version>
+ 	</parent>
+@@ -64,7 +64,7 @@
+ 
+ 	<dependencies>
+ 		<dependency>
+-			<groupId>org.eclipse.jgit</groupId>
++			<groupId>sonia.jgit</groupId>
+ 			<artifactId>org.eclipse.jgit</artifactId>
+ 			<version>${project.version}</version>
+ 		</dependency>
+diff -r 44a8f1bb5b44 org.eclipse.jgit.http.server/pom.xml
+--- a/org.eclipse.jgit.http.server/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.http.server/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -50,7 +50,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -117,7 +139,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.http.server/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -68,7 +68,7 @@
  
@@ -128,9 +150,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.http.server/pom.xml
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.http.test/pom.xml
---- a/org.eclipse.jgit.http.test/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.http.test/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.http.test/pom.xml
+--- a/org.eclipse.jgit.http.test/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.http.test/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -49,7 +49,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -138,15 +160,23 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.http.test/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
-@@ -69,28 +69,28 @@
+@@ -69,35 +69,35 @@
      </dependency>
  
      <dependency>
 -      <groupId>org.eclipse.jgit</groupId>
 +      <groupId>sonia.jgit</groupId>
        <artifactId>org.eclipse.jgit</artifactId>
+       <version>${project.version}</version>
+       <scope>test</scope>
+     </dependency>
+ 
+     <dependency>
+-      <groupId>org.eclipse.jgit</groupId>
++      <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.http.apache</artifactId>
        <version>${project.version}</version>
        <scope>test</scope>
      </dependency>
@@ -173,9 +203,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.http.test/pom.xml
        <artifactId>org.eclipse.jgit.http.server</artifactId>
        <version>${project.version}</version>
        <scope>test</scope>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.java7.test/pom.xml
---- a/org.eclipse.jgit.java7.test/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.java7.test/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.java7.test/pom.xml
+--- a/org.eclipse.jgit.java7.test/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.java7.test/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -183,7 +213,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.java7.test/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -75,19 +75,19 @@
      </dependency>
@@ -208,9 +238,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.java7.test/pom.xml
        <artifactId>org.eclipse.jgit.java7</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.java7/pom.xml
---- a/org.eclipse.jgit.java7/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.java7/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.java7/pom.xml
+--- a/org.eclipse.jgit.java7/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.java7/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -218,7 +248,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.java7/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -62,7 +62,7 @@
  
@@ -229,9 +259,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.java7/pom.xml
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.junit.http/pom.xml
---- a/org.eclipse.jgit.junit.http/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.junit.http/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.junit.http/pom.xml
+--- a/org.eclipse.jgit.junit.http/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.junit.http/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -239,7 +269,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.junit.http/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -66,7 +66,7 @@
  
@@ -266,9 +296,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.junit.http/pom.xml
        <artifactId>org.eclipse.jgit.junit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.junit/pom.xml
---- a/org.eclipse.jgit.junit/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.junit/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.junit/pom.xml
+--- a/org.eclipse.jgit.junit/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.junit/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -50,7 +50,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -276,7 +306,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.junit/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -68,7 +68,7 @@
  
@@ -287,9 +317,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.junit/pom.xml
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.feature/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.feature/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.feature/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.feature/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.feature/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.feature/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,12 +48,12 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -297,7 +327,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
  
 -  <groupId>org.eclipse.jgit.feature</groupId>
@@ -320,9 +350,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
        <artifactId>org.eclipse.jgit.java7</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.java7.feature/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.java7.feature/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.java7.feature/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.java7.feature/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.java7.feature/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.java7.feature/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,12 +48,12 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -330,7 +360,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
  
 -  <groupId>org.eclipse.jgit.feature</groupId>
@@ -354,9 +384,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
        <artifactId>org.eclipse.jgit.java7</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.junit.feature/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.junit.feature/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.junit.feature/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.junit.feature/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.junit.feature/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.junit.feature/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,12 +48,12 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -364,7 +394,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
  
 -  <groupId>org.eclipse.jgit.feature</groupId>
@@ -393,9 +423,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
        <artifactId>org.eclipse.jgit.http.server</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.feature/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.feature/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.feature/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.feature/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.feature/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.feature/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,12 +48,12 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -403,7 +433,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
  
 -  <groupId>org.eclipse.jgit.feature</groupId>
@@ -441,9 +471,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
        <artifactId>org.eclipse.jgit.ui</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.source.feature/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.source.feature/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.source.feature/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.source.feature/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.source.feature/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.pgm.source.feature/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,12 +48,12 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -451,7 +481,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
  
 -  <groupId>org.eclipse.jgit.feature</groupId>
@@ -459,9 +489,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
    <artifactId>org.eclipse.jgit.pgm.source</artifactId>
    <packaging>eclipse-feature</packaging>
  
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.repository/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.repository/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.repository/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.repository/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.repository/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.repository/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -469,9 +499,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
-@@ -60,32 +60,32 @@
+@@ -60,37 +60,37 @@
  
    <dependencies>
      <dependency>
@@ -480,6 +510,12 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
+ 	<dependency>
+-	  <groupId>org.eclipse.jgit</groupId>
++	  <groupId>sonia.jgit</groupId>
+ 	  <artifactId>org.eclipse.jgit.http.apache</artifactId>
+ 	  <version>${project.version}</version>
+ 	</dependency>
  	<dependency>
 -	  <groupId>org.eclipse.jgit</groupId>
 +	  <groupId>sonia.jgit</groupId>
@@ -510,9 +546,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
        <artifactId>org.eclipse.jgit.http.server</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.source.feature/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.source.feature/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.source.feature/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.source.feature/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.source.feature/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.source.feature/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,12 +48,12 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -520,7 +556,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
  
 -  <groupId>org.eclipse.jgit.feature</groupId>
@@ -528,9 +564,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
    <artifactId>org.eclipse.jgit.source</artifactId>
    <packaging>eclipse-feature</packaging>
  
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit.target/pom.xml
---- a/org.eclipse.jgit.packaging/org.eclipse.jgit.target/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.target/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/org.eclipse.jgit.target/pom.xml
+--- a/org.eclipse.jgit.packaging/org.eclipse.jgit.target/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/org.eclipse.jgit.target/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -47,7 +47,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -538,11 +574,11 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/org.eclipse.jgit
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>jgit.tycho.parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/pom.xml
---- a/org.eclipse.jgit.packaging/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.packaging/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.packaging/pom.xml
+--- a/org.eclipse.jgit.packaging/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.packaging/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -51,7 +51,7 @@
      <maven>3.0</maven>
    </prerequisites>
@@ -550,9 +586,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/pom.xml
 -  <groupId>org.eclipse.jgit</groupId>
 +  <groupId>sonia.jgit</groupId>
    <artifactId>jgit.tycho.parent</artifactId>
-   <version>3.2.0.201312181205-r</version>
+   <version>3.3.0.201403021825-r</version>
    <packaging>pom</packaging>
-@@ -98,19 +98,19 @@
+@@ -99,19 +99,19 @@
    <dependencies>
      <!-- sources artifacts so that we can place them in the features -->
      <dependency>
@@ -575,7 +611,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/pom.xml
        <artifactId>org.eclipse.jgit.pgm</artifactId>
        <version>${project.version}</version>
        <classifier>sources</classifier>
-@@ -161,7 +161,7 @@
+@@ -162,7 +162,7 @@
              <pomDependencies>consider</pomDependencies>
              <target>
                <artifact>
@@ -584,9 +620,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.packaging/pom.xml
                  <artifactId>org.eclipse.jgit.target</artifactId>
                  <version>${project.version}</version>
                  <classifier>${target-platform}</classifier>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.pgm.test/pom.xml
---- a/org.eclipse.jgit.pgm.test/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.pgm.test/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.pgm.test/pom.xml
+--- a/org.eclipse.jgit.pgm.test/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.pgm.test/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -594,7 +630,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.pgm.test/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -68,7 +68,7 @@
        </activation>
@@ -621,9 +657,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.pgm.test/pom.xml
        <artifactId>org.eclipse.jgit.pgm</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.pgm/pom.xml
---- a/org.eclipse.jgit.pgm/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.pgm/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.pgm/pom.xml
+--- a/org.eclipse.jgit.pgm/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.pgm/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -631,7 +667,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.pgm/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -77,19 +77,19 @@
      </dependency>
@@ -681,9 +717,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.pgm/pom.xml
            <artifactId>org.eclipse.jgit.console</artifactId>
            <version>${project.version}</version>
          </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.test/pom.xml
---- a/org.eclipse.jgit.test/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.test/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.test/pom.xml
+--- a/org.eclipse.jgit.test/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.test/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -50,7 +50,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -691,7 +727,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.test/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -70,7 +70,7 @@
        </activation>
@@ -739,9 +775,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.test/pom.xml
        <artifactId>org.eclipse.jgit.pgm</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ui/pom.xml
---- a/org.eclipse.jgit.ui/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit.ui/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit.ui/pom.xml
+--- a/org.eclipse.jgit.ui/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit.ui/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -50,7 +50,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -749,7 +785,7 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ui/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
 @@ -68,7 +68,7 @@
  
@@ -760,9 +796,9 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit.ui/pom.xml
        <artifactId>org.eclipse.jgit</artifactId>
        <version>${project.version}</version>
      </dependency>
-diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit/pom.xml
---- a/org.eclipse.jgit/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/org.eclipse.jgit/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 org.eclipse.jgit/pom.xml
+--- a/org.eclipse.jgit/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/org.eclipse.jgit/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -51,7 +51,7 @@
    <modelVersion>4.0.0</modelVersion>
  
@@ -770,11 +806,11 @@ diff -r b1836a5dc294 -r ffe05463a8c7 org.eclipse.jgit/pom.xml
 -    <groupId>org.eclipse.jgit</groupId>
 +    <groupId>sonia.jgit</groupId>
      <artifactId>org.eclipse.jgit-parent</artifactId>
-     <version>3.2.0.201312181205-r</version>
+     <version>3.3.0.201403021825-r</version>
    </parent>
-diff -r b1836a5dc294 -r ffe05463a8c7 pom.xml
---- a/pom.xml	Sat Dec 28 14:56:50 2013 +0100
-+++ b/pom.xml	Sat Dec 28 14:58:53 2013 +0100
+diff -r 44a8f1bb5b44 pom.xml
+--- a/pom.xml	Sat Mar 08 15:27:59 2014 +0100
++++ b/pom.xml	Sat Mar 08 15:40:15 2014 +0100
 @@ -48,7 +48,7 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
@@ -783,8 +819,8 @@ diff -r b1836a5dc294 -r ffe05463a8c7 pom.xml
 +  <groupId>sonia.jgit</groupId>
    <artifactId>org.eclipse.jgit-parent</artifactId>
    <packaging>pom</packaging>
-   <version>3.2.0.201312181205-r</version>
-@@ -215,7 +215,7 @@
+   <version>3.3.0.201403021825-r</version>
+@@ -217,7 +217,7 @@
                  <Implementation-Title>JGit ${project.artifactId}</Implementation-Title>
                  <Implementation-Version>${project.version}</Implementation-Version>
                  <Implementation-Vendor>Eclipse.org - JGit</Implementation-Vendor>
