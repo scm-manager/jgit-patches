@@ -1,0 +1,96 @@
+# HG changeset patch
+# Parent  344b14ee0defe54bb3b6c6041519cf678dfe8c2d
+
+diff -r 344b14ee0def -r 9c54354f7102 org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Sun Jan 18 16:30:30 2015 +0100
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Sun Jan 18 18:11:53 2015 +0100
+@@ -137,6 +137,37 @@
+ 			return capabilities;
+ 		}
+ 	}
++  
++  /** 
++   * PackParserListeners are notified before the {@link PackParser} starts 
++   * parsing the receive pack and after the parsing. The listener is needed to 
++   * get the information which objects are pushed with the receive pack. 
++   * Provided for SCM-Manager 1.45.
++   */
++  public static interface PackParserListener {
++    
++    /**
++     * This method is called before the 
++     * {@link PackParser#parse(ProgressMonitor, ProgressMonitor)} method is 
++     * called.
++     * 
++     * @param parser receive pack parser
++     */
++    public void before(PackParser parser);
++
++    /**
++     * This method is called after the 
++     * {@link PackParser#parse(ProgressMonitor, ProgressMonitor)} method was 
++     * called.
++     * 
++     * @param parser receive pack parser
++     */
++    public void after(PackParser parser);
++    
++  }
++  
++  /** listener for pack parser finish event */
++  private PackParserListener packParserListener;
+ 
+ 	/** Database we write the stored objects into. */
+ 	private final Repository db;
+@@ -598,6 +629,11 @@
+ 	public RefFilter getRefFilter() {
+ 		return refFilter;
+ 	}
++  
++  /** @return PackParserListener */
++  public final PackParserListener getPackParserListener(){
++    return packParserListener;
++  }
+ 
+ 	/**
+ 	 * Set the hook used while advertising the refs to the client.
+@@ -632,6 +668,14 @@
+ 	public void setRefFilter(final RefFilter refFilter) {
+ 		this.refFilter = refFilter != null ? refFilter : RefFilter.DEFAULT;
+ 	}
++  
++  /** Sets the listener for the {@link PackParser}.
++   * 
++   * @param packParserListener listener
++   */
++  public void setPackParserListener(PackParserListener packParserListener){
++    this.packParserListener = packParserListener;
++  }
+ 
+ 	/** @return timeout (in seconds) before aborting an IO operation. */
+ 	public int getTimeout() {
+@@ -1035,12 +1079,24 @@
+ 			parser.setObjectChecker(objectChecker);
+ 			parser.setLockMessage(lockMsg);
+ 			parser.setMaxObjectSizeLimit(maxObjectSizeLimit);
++      
++      // call listener before
++      if (packParserListener != null){
++        packParserListener.before(parser);
++      }
++      
+ 			packLock = parser.parse(receiving, resolving);
+ 			packSize = Long.valueOf(parser.getPackSize());
++      
+ 			ins.flush();
+ 		} finally {
+ 			ins.release();
+ 		}
++    
++    // call listener after
++    if (packParserListener != null){
++      packParserListener.after(parser);
++    }
+ 
+ 		if (timeoutIn != null)
+ 			timeoutIn.setTimeout(timeout * 1000);
