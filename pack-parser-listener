@@ -1,10 +1,10 @@
 # HG changeset patch
-# Parent  344b14ee0defe54bb3b6c6041519cf678dfe8c2d
+# Parent  7233eabe9a3c4c2c9a758ae3817fada2c86504e3
 
-diff -r 344b14ee0def -r 9c54354f7102 org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java
---- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Sun Jan 18 16:30:30 2015 +0100
-+++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Sun Jan 18 18:11:53 2015 +0100
-@@ -137,6 +137,37 @@
+diff -r 7233eabe9a3c org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Thu Jul 14 21:17:43 2016 +0200
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Thu Jul 14 21:20:41 2016 +0200
+@@ -140,6 +140,37 @@
  			return capabilities;
  		}
  	}
@@ -42,7 +42,7 @@ diff -r 344b14ee0def -r 9c54354f7102 org.eclipse.jgit/src/org/eclipse/jgit/trans
  
  	/** Database we write the stored objects into. */
  	private final Repository db;
-@@ -598,6 +629,11 @@
+@@ -662,6 +693,11 @@
  	public RefFilter getRefFilter() {
  		return refFilter;
  	}
@@ -54,7 +54,7 @@ diff -r 344b14ee0def -r 9c54354f7102 org.eclipse.jgit/src/org/eclipse/jgit/trans
  
  	/**
  	 * Set the hook used while advertising the refs to the client.
-@@ -632,6 +668,14 @@
+@@ -696,6 +732,14 @@
  	public void setRefFilter(final RefFilter refFilter) {
  		this.refFilter = refFilter != null ? refFilter : RefFilter.DEFAULT;
  	}
@@ -69,28 +69,24 @@ diff -r 344b14ee0def -r 9c54354f7102 org.eclipse.jgit/src/org/eclipse/jgit/trans
  
  	/** @return timeout (in seconds) before aborting an IO operation. */
  	public int getTimeout() {
-@@ -1035,12 +1079,24 @@
+@@ -1228,9 +1272,20 @@
  			parser.setObjectChecker(objectChecker);
  			parser.setLockMessage(lockMsg);
  			parser.setMaxObjectSizeLimit(maxObjectSizeLimit);
-+      
++
 +      // call listener before
 +      if (packParserListener != null){
 +        packParserListener.before(parser);
 +      }
-+      
++
  			packLock = parser.parse(receiving, resolving);
  			packSize = Long.valueOf(parser.getPackSize());
-+      
  			ins.flush();
- 		} finally {
- 			ins.release();
++
++      // call listener after
++      if (packParserListener != null){
++        packParserListener.after(parser);
++      }
  		}
-+    
-+    // call listener after
-+    if (packParserListener != null){
-+      packParserListener.after(parser);
-+    }
  
  		if (timeoutIn != null)
- 			timeoutIn.setTimeout(timeout * 1000);

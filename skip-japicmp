@@ -1,0 +1,108 @@
+# HG changeset patch
+# Parent  74473efa02c0f00c0303cf92e71a5d8e1ee94c5e
+
+diff -r 74473efa02c0 -r 6f67e81be3a0 org.eclipse.jgit.ant/pom.xml
+--- a/org.eclipse.jgit.ant/pom.xml	Thu Jul 14 21:20:41 2016 +0200
++++ b/org.eclipse.jgit.ant/pom.xml	Thu Jul 14 21:25:40 2016 +0200
+@@ -132,7 +132,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+@@ -185,7 +185,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+       </plugin>
+     </plugins>
+diff -r 74473efa02c0 -r 6f67e81be3a0 org.eclipse.jgit.archive/pom.xml
+--- a/org.eclipse.jgit.archive/pom.xml	Thu Jul 14 21:20:41 2016 +0200
++++ b/org.eclipse.jgit.archive/pom.xml	Thu Jul 14 21:25:40 2016 +0200
+@@ -137,7 +137,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+@@ -190,7 +190,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+       </plugin>
+     </plugins>
+diff -r 74473efa02c0 -r 6f67e81be3a0 org.eclipse.jgit.http.apache/pom.xml
+--- a/org.eclipse.jgit.http.apache/pom.xml	Thu Jul 14 21:20:41 2016 +0200
++++ b/org.eclipse.jgit.http.apache/pom.xml	Thu Jul 14 21:25:40 2016 +0200
+@@ -126,7 +126,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+@@ -179,7 +179,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+       </plugin>
+     </plugins>
+diff -r 74473efa02c0 -r 6f67e81be3a0 org.eclipse.jgit.http.server/pom.xml
+--- a/org.eclipse.jgit.http.server/pom.xml	Thu Jul 14 21:20:41 2016 +0200
++++ b/org.eclipse.jgit.http.server/pom.xml	Thu Jul 14 21:25:40 2016 +0200
+@@ -156,7 +156,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+@@ -209,7 +209,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+       </plugin>
+     </plugins>
+diff -r 74473efa02c0 -r 6f67e81be3a0 org.eclipse.jgit/pom.xml
+--- a/org.eclipse.jgit/pom.xml	Thu Jul 14 21:20:41 2016 +0200
++++ b/org.eclipse.jgit/pom.xml	Thu Jul 14 21:25:40 2016 +0200
+@@ -189,7 +189,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+@@ -254,7 +254,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+       </plugin>
+     </plugins>

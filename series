@@ -1,4 +1,5 @@
 groupid
 maven-repositories
 pack-parser-listener
-v3.7.1.201504261725-r-scm1
+skip-japicmp
+4.4.0.201606070830-r-scm1
