@@ -1,0 +1,219 @@
+# HG changeset patch
+# Parent  e501bbe30b0afe1d8e14ea69eb6fe5d094660bad
+
+diff -r e501bbe30b0a org.eclipse.jgit.ant.test/pom.xml
+--- a/org.eclipse.jgit.ant.test/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.ant.test/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ant.test</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.ant/pom.xml
+--- a/org.eclipse.jgit.ant/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.ant/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -48,7 +48,7 @@
+ 	<parent>
+ 		<groupId>sonia.jgit</groupId>
+ 		<artifactId>org.eclipse.jgit-parent</artifactId>
+-		<version>4.5.2.201704071617-r</version>
++		<version>v4.5.2.201704071617-r-scm1</version>
+ 	</parent>
+ 
+ 	<artifactId>org.eclipse.jgit.ant</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.archive/pom.xml
+--- a/org.eclipse.jgit.archive/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.archive/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.archive</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.http.apache/pom.xml
+--- a/org.eclipse.jgit.http.apache/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.http.apache/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -48,7 +48,7 @@
+ 	<parent>
+ 		<groupId>sonia.jgit</groupId>
+ 		<artifactId>org.eclipse.jgit-parent</artifactId>
+-		<version>4.5.2.201704071617-r</version>
++		<version>v4.5.2.201704071617-r-scm1</version>
+ 	</parent>
+ 
+ 	<artifactId>org.eclipse.jgit.http.apache</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.http.server/pom.xml
+--- a/org.eclipse.jgit.http.server/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.http.server/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -52,7 +52,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.http.server</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.http.test/pom.xml
+--- a/org.eclipse.jgit.http.test/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.http.test/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -51,7 +51,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.http.test</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.junit.http/pom.xml
+--- a/org.eclipse.jgit.junit.http/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.junit.http/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.junit.http</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.junit/pom.xml
+--- a/org.eclipse.jgit.junit/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.junit/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -52,7 +52,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.junit</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.lfs.server.test/pom.xml
+--- a/org.eclipse.jgit.lfs.server.test/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.lfs.server.test/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs.server.test</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.lfs.server/pom.xml
+--- a/org.eclipse.jgit.lfs.server/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.lfs.server/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs.server</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.lfs.test/pom.xml
+--- a/org.eclipse.jgit.lfs.test/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.lfs.test/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs.test</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.lfs/pom.xml
+--- a/org.eclipse.jgit.lfs/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.lfs/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.pgm.test/pom.xml
+--- a/org.eclipse.jgit.pgm.test/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.pgm.test/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.pgm.test</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.pgm/pom.xml
+--- a/org.eclipse.jgit.pgm/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.pgm/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -50,7 +50,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.pgm</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.test/pom.xml
+--- a/org.eclipse.jgit.test/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.test/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -52,7 +52,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.test</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit.ui/pom.xml
+--- a/org.eclipse.jgit.ui/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit.ui/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -52,7 +52,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ui</artifactId>
+diff -r e501bbe30b0a org.eclipse.jgit/pom.xml
+--- a/org.eclipse.jgit/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/org.eclipse.jgit/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -53,7 +53,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>4.5.2.201704071617-r</version>
++    <version>v4.5.2.201704071617-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit</artifactId>
+diff -r e501bbe30b0a pom.xml
+--- a/pom.xml	Thu Jun 01 17:37:16 2017 +0200
++++ b/pom.xml	Thu Jun 01 17:39:10 2017 +0200
+@@ -51,7 +51,7 @@
+   <groupId>sonia.jgit</groupId>
+   <artifactId>org.eclipse.jgit-parent</artifactId>
+   <packaging>pom</packaging>
+-  <version>4.5.2.201704071617-r</version>
++  <version>v4.5.2.201704071617-r-scm1</version>
+ 
+   <name>JGit - Parent</name>
+   <url>${jgit-url}</url>
