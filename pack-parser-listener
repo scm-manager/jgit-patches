@@ -1,11 +1,11 @@
 # HG changeset patch
-# Parent  7233eabe9a3c4c2c9a758ae3817fada2c86504e3
+# Parent  ef58043a2276cdbcdc2e654b63a9d998a82ca56f
 
-diff -r 7233eabe9a3c org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java
---- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Thu Jul 14 21:17:43 2016 +0200
-+++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Thu Jul 14 21:20:41 2016 +0200
-@@ -140,6 +140,37 @@
- 			return capabilities;
+diff -r ef58043a2276 org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Mon Jun 17 15:14:00 2019 +0200
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Mon Jun 17 15:17:15 2019 +0200
+@@ -149,6 +149,37 @@
+ 			return command.getCapabilities();
  		}
  	}
 +  
@@ -41,8 +41,8 @@ diff -r 7233eabe9a3c org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceive
 +  private PackParserListener packParserListener;
  
  	/** Database we write the stored objects into. */
- 	private final Repository db;
-@@ -662,6 +693,11 @@
+ 	final Repository db;
+@@ -753,6 +784,11 @@
  	public RefFilter getRefFilter() {
  		return refFilter;
  	}
@@ -54,8 +54,8 @@ diff -r 7233eabe9a3c org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceive
  
  	/**
  	 * Set the hook used while advertising the refs to the client.
-@@ -696,6 +732,14 @@
- 	public void setRefFilter(final RefFilter refFilter) {
+@@ -789,6 +825,14 @@
+ 	public void setRefFilter(RefFilter refFilter) {
  		this.refFilter = refFilter != null ? refFilter : RefFilter.DEFAULT;
  	}
 +  
@@ -67,26 +67,27 @@ diff -r 7233eabe9a3c org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceive
 +    this.packParserListener = packParserListener;
 +  }
  
- 	/** @return timeout (in seconds) before aborting an IO operation. */
- 	public int getTimeout() {
-@@ -1228,9 +1272,20 @@
+ 	/**
+ 	 * Get timeout (in seconds) before aborting an IO operation.
+@@ -1474,10 +1518,21 @@
  			parser.setObjectChecker(objectChecker);
  			parser.setLockMessage(lockMsg);
  			parser.setMaxObjectSizeLimit(maxObjectSizeLimit);
 +
-+      // call listener before
-+      if (packParserListener != null){
-+        packParserListener.before(parser);
-+      }
++			// call listener before
++			if (packParserListener != null) {
++			  packParserListener.before(parser);
++			}
 +
  			packLock = parser.parse(receiving, resolving);
  			packSize = Long.valueOf(parser.getPackSize());
+ 			stats = parser.getReceivedPackStatistics();
  			ins.flush();
 +
-+      // call listener after
-+      if (packParserListener != null){
-+        packParserListener.after(parser);
-+      }
++			// call listener before
++			if (packParserListener != null) {
++			  packParserListener.after(parser);
++			}
  		}
  
  		if (timeoutIn != null)
