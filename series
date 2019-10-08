@@ -2,3 +2,4 @@ groupid
 maven-repositories
 pack-parser-listener
 v5.4.0.201906121030-r-scm1
+filter-command-registry
