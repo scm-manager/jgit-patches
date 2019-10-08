@@ -1,0 +1,17 @@
+# HG changeset patch
+# Parent  faf9a9eeae067a23ac354b5265f2db2fc98d5b72
+
+diff -r faf9a9eeae06 -r 30157e6efbe7 org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
+--- a/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java	Tue Oct 08 10:23:58 2019 +0200
++++ b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java	Tue Oct 08 14:47:29 2019 +0200
+@@ -24,8 +24,8 @@
+         FilterCommandFactory exactCommandFactory = (db, in, out) -> command;
+         FilterCommandFactory patternCommandFactory = (db, in, out) -> {Assert.fail("should not call factory for pattern"); return null;};
+ 
+-        FilterCommandRegistry.register(Pattern.compile("some exact pattern"), patternCommandFactory);
+-        FilterCommandRegistry.register(Pattern.compile("some .* pattern"), exactCommandFactory);
++        FilterCommandRegistry.register("some exact pattern", exactCommandFactory);
++        FilterCommandRegistry.register(Pattern.compile("some .* pattern"), patternCommandFactory);
+ 
+         Assert.assertSame(command, FilterCommandRegistry.createFilterCommand("some exact pattern", null, null, null));
+     }

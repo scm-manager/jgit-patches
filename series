@@ -2,4 +2,5 @@ groupid
 maven-repositories
 pack-parser-listener
 filter-command-registry
+fix-unittest-filter-command
 v5.4.0.201906121030-r-scm2
