@@ -1,9 +1,9 @@
 # HG changeset patch
 # Parent  ef58043a2276cdbcdc2e654b63a9d998a82ca56f
 
-diff -r ef58043a2276 org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java
---- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Mon Jun 17 15:14:00 2019 +0200
-+++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/BaseReceivePack.java	Mon Jun 17 15:17:15 2019 +0200
+diff -r ef58043a2276 org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java	Mon Jun 17 15:14:00 2019 +0200
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java	Mon Jun 17 15:17:15 2019 +0200
 @@ -149,6 +149,37 @@
  			return command.getCapabilities();
  		}
