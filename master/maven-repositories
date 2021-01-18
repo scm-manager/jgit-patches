@@ -2,80 +2,80 @@
 # Parent abb29c77b41860d547a5dcfb4ff7ce5f469a9063
 
 diff --git a/org.eclipse.jgit.benchmarks/pom.xml b/org.eclipse.jgit.benchmarks/pom.xml
-index 5c85b9144..485680b31 100644
+index b01784c65..37a158143 100644
 --- a/org.eclipse.jgit.benchmarks/pom.xml
 +++ b/org.eclipse.jgit.benchmarks/pom.xml
-@@ -222,15 +222,14 @@
+@@ -186,15 +186,14 @@
    </build>
    <distributionManagement>
      <repository>
 -      <id>repo.eclipse.org</id>
 -      <name>JGit Maven Repository - Releases</name>
 -      <url>https://repo.eclipse.org/content/repositories/jgit-releases/</url>
-+      <id>maven.scm-manager.org</id>
++      <id>packages.scm-manager.org</id>
 +      <name>scm-manager release repository</name>
-+      <url>http://maven.scm-manager.org/nexus/content/repositories/releases</url>
++      <url>https://packages.scm-manager.org/repository/releases/</url>
      </repository>
      <snapshotRepository>
 -      <id>repo.eclipse.org</id>
 -      <name>JGit Maven Repository - Snapshots</name>
 -      <url>https://repo.eclipse.org/content/repositories/jgit-snapshots/</url>
 -      <uniqueVersion>true</uniqueVersion>
-+      <id>maven.scm-manager.org</id>
++      <id>packages.scm-manager.org</id>
 +      <name>scm-manager snapshot repository</name>
-+      <url>http://maven.scm-manager.org/nexus/content/repositories/snapshots</url>
++      <url>https://packages.scm-manager.org/repository/snapshots</url>
      </snapshotRepository>
      <site>
        <id>jgit.website</id>
 diff --git a/org.eclipse.jgit.packaging/pom.xml b/org.eclipse.jgit.packaging/pom.xml
-index 88d62f5ee..49d78e63c 100644
+index fa4f867fd..636e4f738 100644
 --- a/org.eclipse.jgit.packaging/pom.xml
 +++ b/org.eclipse.jgit.packaging/pom.xml
-@@ -85,15 +85,14 @@
+@@ -54,15 +54,14 @@
  
    <distributionManagement>
      <repository>
 -      <id>repo.eclipse.org</id>
 -      <name>JGit Maven Repository - Releases</name>
 -      <url>https://repo.eclipse.org/content/repositories/jgit-releases/</url>
-+      <id>maven.scm-manager.org</id>
++      <id>packages.scm-manager.org</id>
 +      <name>scm-manager release repository</name>
-+      <url>http://maven.scm-manager.org/nexus/content/repositories/releases</url>
++      <url>https://packages.scm-manager.org/repository/releases/</url>
      </repository>
      <snapshotRepository>
 -      <id>repo.eclipse.org</id>
 -      <name>JGit Maven Repository - Snapshots</name>
 -      <url>https://repo.eclipse.org/content/repositories/jgit-snapshots/</url>
 -      <uniqueVersion>true</uniqueVersion>
-+      <id>maven.scm-manager.org</id>
++      <id>packages.scm-manager.org</id>
 +      <name>scm-manager snapshot repository</name>
-+      <url>http://maven.scm-manager.org/nexus/content/repositories/snapshots</url>
++      <url>https://packages.scm-manager.org/repository/snapshots</url>
      </snapshotRepository>
    </distributionManagement>
  
 diff --git a/pom.xml b/pom.xml
-index 8a90d8f56..659cc1856 100644
+index 270bca876..4cc631513 100644
 --- a/pom.xml
 +++ b/pom.xml
-@@ -813,15 +813,14 @@
+@@ -786,15 +786,14 @@
  
    <distributionManagement>
      <repository>
 -      <id>repo.eclipse.org</id>
 -      <name>JGit Maven Repository - Releases</name>
 -      <url>https://repo.eclipse.org/content/repositories/jgit-releases/</url>
-+      <id>maven.scm-manager.org</id>
++      <id>packages.scm-manager.org</id>
 +      <name>scm-manager release repository</name>
-+      <url>http://maven.scm-manager.org/nexus/content/repositories/releases</url>
++      <url>https://packages.scm-manager.org/repository/releases/</url>
      </repository>
      <snapshotRepository>
 -      <id>repo.eclipse.org</id>
 -      <name>JGit Maven Repository - Snapshots</name>
 -      <url>https://repo.eclipse.org/content/repositories/jgit-snapshots/</url>
 -      <uniqueVersion>true</uniqueVersion>
-+      <id>maven.scm-manager.org</id>
++      <id>packages.scm-manager.org</id>
 +      <name>scm-manager snapshot repository</name>
-+      <url>http://maven.scm-manager.org/nexus/content/repositories/snapshots</url>
++      <url>https://packages.scm-manager.org/repository/snapshots</url>
      </snapshotRepository>
      <site>
        <id>jgit.website</id>

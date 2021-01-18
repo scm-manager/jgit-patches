@@ -1,0 +1,113 @@
+diff --git a/org.eclipse.jgit.ant/pom.xml b/org.eclipse.jgit.ant/pom.xml
+index ec753b53b..8cf5be99f 100644
+--- a/org.eclipse.jgit.ant/pom.xml
++++ b/org.eclipse.jgit.ant/pom.xml
+@@ -140,7 +140,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+diff --git a/org.eclipse.jgit.archive/pom.xml b/org.eclipse.jgit.archive/pom.xml
+index bfde7557f..885f24883 100644
+--- a/org.eclipse.jgit.archive/pom.xml
++++ b/org.eclipse.jgit.archive/pom.xml
+@@ -147,7 +147,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+diff --git a/org.eclipse.jgit.gpg.bc/pom.xml b/org.eclipse.jgit.gpg.bc/pom.xml
+index 6d2809064..f304ed608 100644
+--- a/org.eclipse.jgit.gpg.bc/pom.xml
++++ b/org.eclipse.jgit.gpg.bc/pom.xml
+@@ -158,7 +158,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+diff --git a/org.eclipse.jgit.http.apache/pom.xml b/org.eclipse.jgit.http.apache/pom.xml
+index 9c862126d..14a32c674 100644
+--- a/org.eclipse.jgit.http.apache/pom.xml
++++ b/org.eclipse.jgit.http.apache/pom.xml
+@@ -144,7 +144,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+diff --git a/org.eclipse.jgit.http.server/pom.xml b/org.eclipse.jgit.http.server/pom.xml
+index 03e43f0d5..b1513706c 100644
+--- a/org.eclipse.jgit.http.server/pom.xml
++++ b/org.eclipse.jgit.http.server/pom.xml
+@@ -146,7 +146,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+diff --git a/org.eclipse.jgit.ssh.apache/pom.xml b/org.eclipse.jgit.ssh.apache/pom.xml
+index 87d15a359..cf1876117 100644
+--- a/org.eclipse.jgit.ssh.apache/pom.xml
++++ b/org.eclipse.jgit.ssh.apache/pom.xml
+@@ -162,7 +162,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+diff --git a/org.eclipse.jgit.ssh.jsch/pom.xml b/org.eclipse.jgit.ssh.jsch/pom.xml
+index 544d4a55c..f336d527f 100644
+--- a/org.eclipse.jgit.ssh.jsch/pom.xml
++++ b/org.eclipse.jgit.ssh.jsch/pom.xml
+@@ -153,7 +153,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
+@@ -206,7 +206,7 @@
+                   <ignoreMissingClasses>false</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+       </plugin>
+     </plugins>
+diff --git a/org.eclipse.jgit/pom.xml b/org.eclipse.jgit/pom.xml
+index 66bae9abe..d2c1fd1c6 100644
+--- a/org.eclipse.jgit/pom.xml
++++ b/org.eclipse.jgit/pom.xml
+@@ -147,7 +147,7 @@
+                   <ignoreMissingClasses>true</ignoreMissingClasses>
+                   <skipPomModules>true</skipPomModules>
+               </parameter>
+-              <skip>false</skip>
++              <skip>true</skip>
+           </configuration>
+           <executions>
+             <execution>
