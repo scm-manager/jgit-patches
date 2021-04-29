@@ -27,3 +27,16 @@ guilt push -a
 
 __Do not push these applied patches to the jgit repository!__
 
+To create a new patch. call this **before** you make any changes:
+
+```
+guilt new patch-name
+```
+
+Then make your changes and call this to update the patch:
+
+```
+guilt refresh
+```
+
+This new patch can then be added to the patch repository and pushed.

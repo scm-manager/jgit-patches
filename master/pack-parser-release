@@ -1,0 +1,106 @@
+diff --git a/org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java b/org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java
+index 646485cfb..048afac01 100644
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/transport/ReceivePack.java
+@@ -112,37 +112,42 @@ public String getLine() {
+ 			return command.getCapabilities();
+ 		}
+ 	}
+-  
+-  /** 
+-   * PackParserListeners are notified before the {@link PackParser} starts 
+-   * parsing the receive pack and after the parsing. The listener is needed to 
+-   * get the information which objects are pushed with the receive pack. 
+-   * Provided for SCM-Manager 1.45.
+-   */
+-  public static interface PackParserListener {
+-    
+-    /**
+-     * This method is called before the 
+-     * {@link PackParser#parse(ProgressMonitor, ProgressMonitor)} method is 
+-     * called.
+-     * 
+-     * @param parser receive pack parser
+-     */
+-    public void before(PackParser parser);
+ 
+     /**
+-     * This method is called after the 
+-     * {@link PackParser#parse(ProgressMonitor, ProgressMonitor)} method was 
+-     * called.
+-     * 
+-     * @param parser receive pack parser
++     * PackParserListeners are notified before the {@link PackParser} starts
++     * parsing the receive pack and after the parsing. The listener is needed to
++     * get the information which objects are pushed with the receive pack.
++     * Provided for SCM-Manager 1.45.
+      */
+-    public void after(PackParser parser);
+-    
+-  }
+-  
+-  /** listener for pack parser finish event */
+-  private PackParserListener packParserListener;
++    public interface PackParserListener {
++
++        /**
++         * This method is called before the
++         * {@link PackParser#parse(ProgressMonitor, ProgressMonitor)} method is
++         * called.
++         *
++         * @param parser receive pack parser
++         */
++        void before(PackParser parser);
++
++        /**
++         * This method is called after the
++         * {@link PackParser#parse(ProgressMonitor, ProgressMonitor)} method was
++         * called.
++         *
++         * @param parser receive pack parser
++         */
++        void after(PackParser parser);
++
++        /**
++         * This method is called in {@link ReceivePack#receive(InputStream, OutputStream, OutputStream)}
++    	 * after the service has finished, but before everything (ie. the message channel) is closed.
++         */
++        default void release() {}
++    }
++
++    /** listener for pack parser finish event */
++    private PackParserListener packParserListener;
+ 
+ 	/** Database we write the stored objects into. */
+ 	private final Repository db;
+@@ -779,7 +784,7 @@ public AdvertiseRefsHook getAdvertiseRefsHook() {
+ 	public RefFilter getRefFilter() {
+ 		return refFilter;
+ 	}
+-  
++
+   /** @return PackParserListener */
+   public final PackParserListener getPackParserListener(){
+     return packParserListener;
+@@ -820,9 +825,9 @@ public void setAdvertiseRefsHook(AdvertiseRefsHook advertiseRefsHook) {
+ 	public void setRefFilter(RefFilter refFilter) {
+ 		this.refFilter = refFilter != null ? refFilter : RefFilter.DEFAULT;
+ 	}
+-  
++
+   /** Sets the listener for the {@link PackParser}.
+-   * 
++   *
+    * @param packParserListener listener
+    */
+   public void setPackParserListener(PackParserListener packParserListener){
+@@ -2173,6 +2178,9 @@ public void receive(final InputStream input, final OutputStream output,
+ 		init(input, output, messages);
+ 		try {
+ 			service();
++			if (packParserListener != null) {
++				packParserListener.release();
++			}
+ 		} catch (PackProtocolException e) {
+ 			fatalError(e.getMessage());
+ 			throw e;
