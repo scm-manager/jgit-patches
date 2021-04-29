@@ -4,5 +4,5 @@ maven-repositories
 pack-parser-listener
 filter-command-registry
 fix-unittest-filter-command
-5.10.0.202012080955-r-scm1
 pack-parser-release
+5.10.0.202012080955-r-scm2
