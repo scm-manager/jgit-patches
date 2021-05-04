@@ -1,10 +1,18 @@
 # HG changeset patch
 # Parent  faf9a9eeae067a23ac354b5265f2db2fc98d5b72
 
-diff -r faf9a9eeae06 -r 30157e6efbe7 org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
---- a/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java	Tue Oct 08 10:23:58 2019 +0200
-+++ b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java	Tue Oct 08 14:47:29 2019 +0200
-@@ -24,8 +24,8 @@
+diff --git a/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
+index 60ff4a1b8..5e2bfc2f8 100644
+--- a/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
++++ b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
+@@ -1,5 +1,6 @@
+ package org.eclipse.jgit.attributes;
+ 
++import org.junit.After;
+ import org.junit.Assert;
+ import org.junit.Test;
+ 
+@@ -24,12 +25,17 @@ public void shouldPreferExactMatchesOverPatterns() throws IOException {
          FilterCommandFactory exactCommandFactory = (db, in, out) -> command;
          FilterCommandFactory patternCommandFactory = (db, in, out) -> {Assert.fail("should not call factory for pattern"); return null;};
  
@@ -15,3 +23,36 @@ diff -r faf9a9eeae06 -r 30157e6efbe7 org.eclipse.jgit.lfs.test/tst/org/eclipse/j
  
          Assert.assertSame(command, FilterCommandRegistry.createFilterCommand("some exact pattern", null, null, null));
      }
+ 
++    @After
++    public void removeFilter() {
++        FilterCommandRegistry.unregisterAll();
++    }
++
+     private static class MockFilterCommand extends FilterCommand {
+         public MockFilterCommand() {
+             super(null, null);
+@@ -40,4 +46,4 @@ public int run() {
+             return 0;
+         }
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java b/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
+index 9bf7ad46e..e830e0645 100644
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
+@@ -175,4 +175,12 @@ private static FilterCommandFactory getFactoryFromPatterns(String filterCommandN
+ 				.findAny()
+ 				.orElse(null);
+ 	}
++
++	/**
++	 * Used in unit tests
++	 */
++	static void unregisterAll() {
++		filterCommandRegistry.clear();
++		filterCommandPatternRegistry.clear();
++	}
+ }
