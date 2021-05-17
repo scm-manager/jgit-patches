@@ -1,0 +1,444 @@
+diff --git a/org.eclipse.jgit.ant.test/pom.xml b/org.eclipse.jgit.ant.test/pom.xml
+index 571b33990..19daffee6 100644
+--- a/org.eclipse.jgit.ant.test/pom.xml
++++ b/org.eclipse.jgit.ant.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ant.test</artifactId>
+diff --git a/org.eclipse.jgit.ant/pom.xml b/org.eclipse.jgit.ant/pom.xml
+index ad5f796ab..6d117333f 100644
+--- a/org.eclipse.jgit.ant/pom.xml
++++ b/org.eclipse.jgit.ant/pom.xml
+@@ -15,7 +15,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ant</artifactId>
+diff --git a/org.eclipse.jgit.archive/pom.xml b/org.eclipse.jgit.archive/pom.xml
+index 291a176e0..c3790a091 100644
+--- a/org.eclipse.jgit.archive/pom.xml
++++ b/org.eclipse.jgit.archive/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.archive</artifactId>
+diff --git a/org.eclipse.jgit.coverage/pom.xml b/org.eclipse.jgit.coverage/pom.xml
+index 7b7f2bcdc..1d64e62ef 100644
+--- a/org.eclipse.jgit.coverage/pom.xml
++++ b/org.eclipse.jgit.coverage/pom.xml
+@@ -14,7 +14,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+ 
+@@ -27,88 +27,88 @@
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.ant</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.archive</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.http.apache</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.http.server</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.lfs</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.lfs.server</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.pgm</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.ui</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.ssh.apache</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+ 
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.ant.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.http.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.pgm.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.lfs.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.lfs.server.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+     <dependency>
+       <groupId>sonia.jgit</groupId>
+       <artifactId>org.eclipse.jgit.ssh.apache.test</artifactId>
+-      <version>5.11.1.202105131744-r</version>
++      <version>5.11.1.202105131744-r-scm1</version>
+     </dependency>
+   </dependencies>
+ 
+diff --git a/org.eclipse.jgit.gpg.bc.test/pom.xml b/org.eclipse.jgit.gpg.bc.test/pom.xml
+index 7a41b7bdb..faceac4b5 100644
+--- a/org.eclipse.jgit.gpg.bc.test/pom.xml
++++ b/org.eclipse.jgit.gpg.bc.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.gpg.bc.test</artifactId>
+diff --git a/org.eclipse.jgit.gpg.bc/pom.xml b/org.eclipse.jgit.gpg.bc/pom.xml
+index 3e1be500f..a85e79620 100644
+--- a/org.eclipse.jgit.gpg.bc/pom.xml
++++ b/org.eclipse.jgit.gpg.bc/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.gpg.bc</artifactId>
+diff --git a/org.eclipse.jgit.http.apache/pom.xml b/org.eclipse.jgit.http.apache/pom.xml
+index d0c2c0fe7..d45c97fcb 100644
+--- a/org.eclipse.jgit.http.apache/pom.xml
++++ b/org.eclipse.jgit.http.apache/pom.xml
+@@ -15,7 +15,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.http.apache</artifactId>
+diff --git a/org.eclipse.jgit.http.server/pom.xml b/org.eclipse.jgit.http.server/pom.xml
+index 11491c65c..1a5676af5 100644
+--- a/org.eclipse.jgit.http.server/pom.xml
++++ b/org.eclipse.jgit.http.server/pom.xml
+@@ -19,7 +19,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.http.server</artifactId>
+diff --git a/org.eclipse.jgit.http.test/pom.xml b/org.eclipse.jgit.http.test/pom.xml
+index 40151fe9b..5df68ffea 100644
+--- a/org.eclipse.jgit.http.test/pom.xml
++++ b/org.eclipse.jgit.http.test/pom.xml
+@@ -18,7 +18,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.http.test</artifactId>
+diff --git a/org.eclipse.jgit.junit.http/pom.xml b/org.eclipse.jgit.junit.http/pom.xml
+index b1b37ffc8..1cbe9b518 100644
+--- a/org.eclipse.jgit.junit.http/pom.xml
++++ b/org.eclipse.jgit.junit.http/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.junit.http</artifactId>
+diff --git a/org.eclipse.jgit.junit.ssh/pom.xml b/org.eclipse.jgit.junit.ssh/pom.xml
+index 63bc3d9da..2dc54133a 100644
+--- a/org.eclipse.jgit.junit.ssh/pom.xml
++++ b/org.eclipse.jgit.junit.ssh/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.junit.ssh</artifactId>
+diff --git a/org.eclipse.jgit.junit/pom.xml b/org.eclipse.jgit.junit/pom.xml
+index a87a3001d..2990b9b9c 100644
+--- a/org.eclipse.jgit.junit/pom.xml
++++ b/org.eclipse.jgit.junit/pom.xml
+@@ -19,7 +19,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.junit</artifactId>
+diff --git a/org.eclipse.jgit.lfs.server.test/pom.xml b/org.eclipse.jgit.lfs.server.test/pom.xml
+index 553f56c22..78748f7ff 100644
+--- a/org.eclipse.jgit.lfs.server.test/pom.xml
++++ b/org.eclipse.jgit.lfs.server.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs.server.test</artifactId>
+diff --git a/org.eclipse.jgit.lfs.server/pom.xml b/org.eclipse.jgit.lfs.server/pom.xml
+index c96b4f622..586544722 100644
+--- a/org.eclipse.jgit.lfs.server/pom.xml
++++ b/org.eclipse.jgit.lfs.server/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs.server</artifactId>
+diff --git a/org.eclipse.jgit.lfs.test/pom.xml b/org.eclipse.jgit.lfs.test/pom.xml
+index 508d67be8..79c7b5c19 100644
+--- a/org.eclipse.jgit.lfs.test/pom.xml
++++ b/org.eclipse.jgit.lfs.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs.test</artifactId>
+diff --git a/org.eclipse.jgit.lfs/pom.xml b/org.eclipse.jgit.lfs/pom.xml
+index 78c831813..c15249619 100644
+--- a/org.eclipse.jgit.lfs/pom.xml
++++ b/org.eclipse.jgit.lfs/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.lfs</artifactId>
+diff --git a/org.eclipse.jgit.pgm.test/pom.xml b/org.eclipse.jgit.pgm.test/pom.xml
+index b552f9f17..85539f172 100644
+--- a/org.eclipse.jgit.pgm.test/pom.xml
++++ b/org.eclipse.jgit.pgm.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.pgm.test</artifactId>
+diff --git a/org.eclipse.jgit.pgm/pom.xml b/org.eclipse.jgit.pgm/pom.xml
+index 0cce048b5..f059b1bb1 100644
+--- a/org.eclipse.jgit.pgm/pom.xml
++++ b/org.eclipse.jgit.pgm/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.pgm</artifactId>
+diff --git a/org.eclipse.jgit.ssh.apache.test/pom.xml b/org.eclipse.jgit.ssh.apache.test/pom.xml
+index 9ef868b1c..f46c8ce9e 100644
+--- a/org.eclipse.jgit.ssh.apache.test/pom.xml
++++ b/org.eclipse.jgit.ssh.apache.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ssh.apache.test</artifactId>
+diff --git a/org.eclipse.jgit.ssh.apache/pom.xml b/org.eclipse.jgit.ssh.apache/pom.xml
+index 86d79a538..79601350e 100644
+--- a/org.eclipse.jgit.ssh.apache/pom.xml
++++ b/org.eclipse.jgit.ssh.apache/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ssh.apache</artifactId>
+diff --git a/org.eclipse.jgit.ssh.jsch.test/pom.xml b/org.eclipse.jgit.ssh.jsch.test/pom.xml
+index 1b2aedf64..04734727d 100644
+--- a/org.eclipse.jgit.ssh.jsch.test/pom.xml
++++ b/org.eclipse.jgit.ssh.jsch.test/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ssh.jsch.test</artifactId>
+diff --git a/org.eclipse.jgit.ssh.jsch/pom.xml b/org.eclipse.jgit.ssh.jsch/pom.xml
+index e4cdc4183..9cb377b3c 100644
+--- a/org.eclipse.jgit.ssh.jsch/pom.xml
++++ b/org.eclipse.jgit.ssh.jsch/pom.xml
+@@ -17,7 +17,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ssh.jsch</artifactId>
+diff --git a/org.eclipse.jgit.test/pom.xml b/org.eclipse.jgit.test/pom.xml
+index bc2356211..132f63ec7 100644
+--- a/org.eclipse.jgit.test/pom.xml
++++ b/org.eclipse.jgit.test/pom.xml
+@@ -19,7 +19,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.test</artifactId>
+diff --git a/org.eclipse.jgit.ui/pom.xml b/org.eclipse.jgit.ui/pom.xml
+index 3caad9807..e47e11f5d 100644
+--- a/org.eclipse.jgit.ui/pom.xml
++++ b/org.eclipse.jgit.ui/pom.xml
+@@ -19,7 +19,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit.ui</artifactId>
+diff --git a/org.eclipse.jgit/pom.xml b/org.eclipse.jgit/pom.xml
+index c2f528e6c..cbc938fef 100644
+--- a/org.eclipse.jgit/pom.xml
++++ b/org.eclipse.jgit/pom.xml
+@@ -20,7 +20,7 @@
+   <parent>
+     <groupId>sonia.jgit</groupId>
+     <artifactId>org.eclipse.jgit-parent</artifactId>
+-    <version>5.11.1.202105131744-r</version>
++    <version>5.11.1.202105131744-r-scm1</version>
+   </parent>
+ 
+   <artifactId>org.eclipse.jgit</artifactId>
+diff --git a/pom.xml b/pom.xml
+index 65daead09..25588a958 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -18,7 +18,7 @@
+   <groupId>sonia.jgit</groupId>
+   <artifactId>org.eclipse.jgit-parent</artifactId>
+   <packaging>pom</packaging>
+-  <version>5.11.1.202105131744-r</version>
++  <version>5.11.1.202105131744-r-scm1</version>
+ 
+   <name>JGit - Parent</name>
+   <url>${jgit-url}</url>

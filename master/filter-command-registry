@@ -1,9 +1,11 @@
 # HG changeset patch
 # Parent  6e6ca170b5edd81ac08304556ba6416ae43fbbb1
 
-diff -r 6e6ca170b5ed org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
---- /dev/null	Thu Jan 01 00:00:00 1970 +0000
-+++ b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java	Tue Oct 08 09:58:26 2019 +0200
+diff --git a/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
+new file mode 100644
+index 000000000..60ff4a1b8
+--- /dev/null
++++ b/org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/FilterCommandRegistryTest.java
 @@ -0,0 +1,43 @@
 +package org.eclipse.jgit.attributes;
 +
@@ -49,14 +51,12 @@ diff -r 6e6ca170b5ed org.eclipse.jgit.lfs.test/tst/org/eclipse/jgit/attributes/F
 +    }
 +}
 \ No newline at end of file
-diff -r 6e6ca170b5ed org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
---- a/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java	Tue Oct 08 09:49:51 2019 +0200
-+++ b/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java	Tue Oct 08 09:58:26 2019 +0200
-@@ -45,18 +45,30 @@
- import java.io.IOException;
- import java.io.InputStream;
- import java.io.OutputStream;
-+import java.util.Map;
+diff --git a/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java b/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
+index 1c9e9d7f7..238eaefd3 100644
+--- a/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
++++ b/org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterCommandRegistry.java
+@@ -15,16 +15,27 @@
+ import java.util.Map;
  import java.util.Set;
  import java.util.concurrent.ConcurrentHashMap;
 +import java.util.regex.Pattern;
@@ -66,8 +66,7 @@ diff -r 6e6ca170b5ed org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterComm
  /**
 - * Registry for built-in filters
 + * Registry for built-in filters.
-  *
-- * @since 4.6
++ *
 + * There are two ways to register filters:
 + * <ol>
 + *     <li>With a string equal to the expected command</li>
@@ -76,19 +75,20 @@ diff -r 6e6ca170b5ed org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterComm
 + *
 + * Please mind, that commands registered with a string (using the first way)
 + * will precede filters registered with a pattern.
-+ *
-+ * @since 5.4scm2
+  *
+  * @since 4.6
   */
  public class FilterCommandRegistry {
- 	private static ConcurrentHashMap<String, FilterCommandFactory> filterCommandRegistry = new ConcurrentHashMap<>();
+ 	private static Map<String, FilterCommandFactory> filterCommandRegistry = new ConcurrentHashMap<>();
 +	private static ConcurrentHashMap<Pattern, FilterCommandFactory> filterCommandPatternRegistry = new ConcurrentHashMap<>();
  
  	/**
  	 * Register a {@link org.eclipse.jgit.attributes.FilterCommandFactory}
-@@ -82,6 +94,29 @@
+@@ -49,6 +60,30 @@ public static FilterCommandFactory register(String filterCommandName,
+ 		return filterCommandRegistry.put(filterCommandName, factory);
  	}
  
- 	/**
++	/**
 +	 * Register a {@link org.eclipse.jgit.attributes.FilterCommandFactory}
 +	 * responsible for creating
 +	 * {@link org.eclipse.jgit.attributes.FilterCommand}s for a certain command
@@ -105,20 +105,21 @@ diff -r 6e6ca170b5ed org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterComm
 +	 *            specified name pattern
 +	 * @return the previous factory associated with <tt>commandName</tt>, or
 +	 *         <tt>null</tt> if there was no mapping for <tt>commandName</tt>
++	 * @since 5.4scm2
 +	 */
 +	public static FilterCommandFactory register(Pattern filterCommandNamePattern,
 +			FilterCommandFactory factory) {
 +		return filterCommandPatternRegistry.put(filterCommandNamePattern, factory);
 +	}
 +
-+	/**
+ 	/**
  	 * Unregister the {@link org.eclipse.jgit.attributes.FilterCommandFactory}
  	 * registered for the given command name
- 	 *
-@@ -95,6 +130,19 @@
+@@ -62,6 +97,20 @@ public static FilterCommandFactory unregister(String filterCommandName) {
+ 		return filterCommandRegistry.remove(filterCommandName);
  	}
  
- 	/**
++	/**
 +	 * Unregister the {@link org.eclipse.jgit.attributes.FilterCommandFactory}
 +	 * registered for the given command name pattern
 +	 *
@@ -126,16 +127,16 @@ diff -r 6e6ca170b5ed org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterComm
 +	 *            the FilterCommandFactory's filter command name pattern
 +	 * @return the previous factory associated with <tt>filterCommandName</tt>,
 +	 *         or <tt>null</tt> if there was no mapping for <tt>commandName</tt>
++	 * @since 5.4scm2
 +	 */
 +	public static FilterCommandFactory unregister(Pattern filterCommandNamePattern) {
 +		return filterCommandPatternRegistry.remove(filterCommandNamePattern);
 +	}
 +
-+	/**
+ 	/**
  	 * Check whether any
  	 * {@link org.eclipse.jgit.attributes.FilterCommandFactory} is registered
- 	 * for a given command name
-@@ -104,7 +152,7 @@
+@@ -72,7 +121,7 @@ public static FilterCommandFactory unregister(String filterCommandName) {
  	 * @return <code>true</code> if any factory was registered for the name
  	 */
  	public static boolean isRegistered(String filterCommandName) {
@@ -144,7 +145,7 @@ diff -r 6e6ca170b5ed org.eclipse.jgit/src/org/eclipse/jgit/attributes/FilterComm
  	}
  
  	/**
-@@ -143,8 +191,21 @@
+@@ -111,8 +160,21 @@ public static boolean isRegistered(String filterCommandName) {
  	public static FilterCommand createFilterCommand(String filterCommandName,
  			Repository db, InputStream in, OutputStream out)
  			throws IOException {
