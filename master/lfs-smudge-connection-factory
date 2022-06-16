@@ -1,0 +1,112 @@
+diff --git a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
+index 341188756..4fc8a2711 100644
+--- a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
++++ b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
+@@ -33,6 +33,7 @@
+ import org.eclipse.jgit.lfs.lib.Constants;
+ import org.eclipse.jgit.lib.Repository;
+ import org.eclipse.jgit.transport.http.HttpConnection;
++import org.eclipse.jgit.transport.http.HttpConnectionFactory;
+ import org.eclipse.jgit.util.HttpSupport;
+ 
+ import com.google.gson.Gson;
+@@ -117,7 +118,9 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+ 	}
+ 
+ 	/**
+-	 * Download content which is hosted on a LFS server
++	 * Download content which is hosted on a LFS server.
++	 * Calls {@link #downloadLfsResource(Lfs, Repository, HttpConnectionFactory, LfsPointer...)}
++	 * with a <code>null</code> connection factory.
+ 	 *
+ 	 * @param lfs
+ 	 *            local {@link Lfs} storage.
+@@ -131,13 +134,34 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+ 	 */
+ 	public static Collection<Path> downloadLfsResource(Lfs lfs, Repository db,
+ 			LfsPointer... res) throws IOException {
++		return downloadLfsResource(lfs, db, null, res);
++	}
++
++	/**
++	 * Download content which is hosted on a LFS server
++	 *
++	 * @param lfs
++	 *            local {@link Lfs} storage.
++	 * @param db
++	 *            the repository to work with
++	 * @param connectionFactory
++	 * 			  optional connection factory that will be used for download. To use
++	 * 			  the default connection factory, this can be set to <code>null</code>.
++	 * @param res
++	 *            the objects to download
++	 * @return the paths of all mediafiles which have been downloaded
++	 * @throws IOException
++	 * @since 4.11
++	 */
++	public static Collection<Path> downloadLfsResource(Lfs lfs, Repository db, HttpConnectionFactory connectionFactory,
++			LfsPointer... res) throws IOException {
+ 		Collection<Path> downloadedPaths = new ArrayList<>();
+ 		Map<String, LfsPointer> oidStr2ptr = new HashMap<>();
+ 		for (LfsPointer p : res) {
+ 			oidStr2ptr.put(p.getOid().name(), p);
+ 		}
+ 		HttpConnection lfsServerConn = LfsConnectionFactory.getLfsConnection(db,
+-				HttpSupport.METHOD_POST, Protocol.OPERATION_DOWNLOAD);
++				HttpSupport.METHOD_POST, Protocol.OPERATION_DOWNLOAD, connectionFactory);
+ 		Gson gson = Protocol.gson();
+ 		lfsServerConn.getOutputStream()
+ 				.write(gson
+diff --git a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
+index e221913be..04d126824 100644
+--- a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
++++ b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
+@@ -37,6 +37,7 @@
+ import org.eclipse.jgit.transport.HttpTransport;
+ import org.eclipse.jgit.transport.URIish;
+ import org.eclipse.jgit.transport.http.HttpConnection;
++import org.eclipse.jgit.transport.http.HttpConnectionFactory;
+ import org.eclipse.jgit.util.HttpSupport;
+ import org.eclipse.jgit.util.SshSupport;
+ 
+@@ -70,12 +71,38 @@
+ 	 */
+ 	public static HttpConnection getLfsConnection(Repository db, String method,
+ 			String purpose) throws IOException {
++		return getLfsConnection(db, method, purpose, null);
++	}
++
++	/**
++	 * Determine URL of LFS server by looking into config parameters lfs.url,
++	 * lfs.[remote].url or remote.[remote].url. The LFS server URL is computed
++	 * from remote.[remote].url by appending "/info/lfs". In case there is no
++	 * URL configured, a SSH remote URI can be used to auto-detect the LFS URI
++	 * by using the remote "git-lfs-authenticate" command.
++	 *
++	 * @param db
++	 *            the repository to work with
++	 * @param method
++	 *            the method (GET,PUT,...) of the request this connection will
++	 *            be used for
++	 * @param purpose
++	 *            the action, e.g. Protocol.OPERATION_DOWNLOAD
++	 * @param connectionFactory
++	 * 		      optional connection factory that will be used to create the connection.
++	 * 		      To use the default connection factory, this can be set to <code>null</code>.
++	 * @return the url for the lfs server. e.g.
++	 *         "https://github.com/github/git-lfs.git/info/lfs"
++	 * @throws IOException
++	 */
++	public static HttpConnection getLfsConnection(Repository db, String method,
++												  String purpose, HttpConnectionFactory connectionFactory) throws IOException {
+ 		StoredConfig config = db.getConfig();
+ 		Map<String, String> additionalHeaders = new TreeMap<>();
+ 		String lfsUrl = getLfsUrl(db, purpose, additionalHeaders);
+ 		URL url = new URL(lfsUrl + Protocol.OBJECTS_LFS_ENDPOINT);
+-		HttpConnection connection = HttpTransport.getConnectionFactory().create(
+-				url, HttpSupport.proxyFor(ProxySelector.getDefault(), url));
++		HttpConnection connection = (connectionFactory != null? connectionFactory: HttpTransport.getConnectionFactory())
++				.create(url, HttpSupport.proxyFor(ProxySelector.getDefault(), url));
+ 		connection.setDoOutput(true);
+ 		if (url.getProtocol().equals(SCHEME_HTTPS)
+ 				&& !config.getBoolean(HttpConfig.HTTP,
