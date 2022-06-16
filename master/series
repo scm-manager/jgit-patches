@@ -5,4 +5,5 @@ pack-parser-listener
 filter-command-registry
 fix-unittest-filter-command
 pack-parser-release
-5.11.1.202105131744-r-scm1
+lfs-smudge-connection-factory
+5.11.1.202105131744-r-scm2
