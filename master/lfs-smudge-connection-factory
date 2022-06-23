@@ -1,5 +1,5 @@
 diff --git a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
-index 341188756..4fc8a2711 100644
+index 341188756..c269d89ac 100644
 --- a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
 +++ b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
 @@ -33,6 +33,7 @@
@@ -57,8 +57,17 @@ index 341188756..4fc8a2711 100644
  		Gson gson = Protocol.gson();
  		lfsServerConn.getOutputStream()
  				.write(gson
+@@ -186,7 +210,7 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+ 
+ 				HttpConnection contentServerConn = LfsConnectionFactory
+ 						.getLfsContentConnection(db, downloadAction,
+-								HttpSupport.METHOD_GET);
++								HttpSupport.METHOD_GET, connectionFactory);
+ 
+ 				responseCode = contentServerConn.getResponseCode();
+ 				if (responseCode != HttpConnection.HTTP_OK) {
 diff --git a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
-index e221913be..04d126824 100644
+index e221913be..c1c171d2e 100644
 --- a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
 +++ b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
 @@ -37,6 +37,7 @@
@@ -105,8 +114,53 @@ index e221913be..04d126824 100644
  		URL url = new URL(lfsUrl + Protocol.OBJECTS_LFS_ENDPOINT);
 -		HttpConnection connection = HttpTransport.getConnectionFactory().create(
 -				url, HttpSupport.proxyFor(ProxySelector.getDefault(), url));
-+		HttpConnection connection = (connectionFactory != null? connectionFactory: HttpTransport.getConnectionFactory())
++		HttpConnection connection = getHttpConnectionFactory(connectionFactory)
 +				.create(url, HttpSupport.proxyFor(ProxySelector.getDefault(), url));
  		connection.setDoOutput(true);
  		if (url.getProtocol().equals(SCHEME_HTTPS)
  				&& !config.getBoolean(HttpConfig.HTTP,
+@@ -199,8 +226,32 @@ private static String discoverLfsUrl(Repository db, String purpose,
+ 	public static HttpConnection getLfsContentConnection(
+ 			Repository repo, Protocol.Action action, String method)
+ 			throws IOException {
++		return getLfsContentConnection(repo, action, method, null);
++	}
++
++	/**
++	 * Create a connection for the specified
++	 * {@link org.eclipse.jgit.lfs.Protocol.Action}.
++	 *
++	 * @param repo
++	 *            the repo to fetch required configuration from
++	 * @param action
++	 *            the action for which to create a connection
++	 * @param method
++	 *            the target method (GET or PUT)
++	 * @param connectionFactory
++	 * 		      optional connection factory that will be used to create the connection.
++	 * 		      To use the default connection factory, this can be set to <code>null</code>.
++	 * @return a connection. output mode is not set.
++	 * @throws IOException
++	 *             in case of any error.
++	 */
++	@NonNull
++	public static HttpConnection getLfsContentConnection(
++			Repository repo, Protocol.Action action, String method, HttpConnectionFactory connectionFactory)
++			throws IOException {
+ 		URL contentUrl = new URL(action.href);
+-		HttpConnection contentServerConn = HttpTransport.getConnectionFactory()
++		HttpConnection contentServerConn = getHttpConnectionFactory(connectionFactory)
+ 				.create(contentUrl, HttpSupport
+ 						.proxyFor(ProxySelector.getDefault(), contentUrl));
+ 		contentServerConn.setRequestMethod(method);
+@@ -220,6 +271,10 @@ public static HttpConnection getLfsContentConnection(
+ 		return contentServerConn;
+ 	}
+ 
++	private static HttpConnectionFactory getHttpConnectionFactory(HttpConnectionFactory connectionFactory) {
++		return connectionFactory != null ? connectionFactory : HttpTransport.getConnectionFactory();
++	}
++
+ 	private static String extractProjectName(URIish u) {
+ 		String path = u.getPath();
+ 
