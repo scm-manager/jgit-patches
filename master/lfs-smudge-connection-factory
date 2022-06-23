@@ -1,8 +1,25 @@
 diff --git a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
-index 341188756..c269d89ac 100644
+index 341188756..572a94778 100644
 --- a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
 +++ b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/SmudgeFilter.java
-@@ -33,6 +33,7 @@
+@@ -10,6 +10,8 @@
+ package org.eclipse.jgit.lfs;
+ 
+ import static java.nio.charset.StandardCharsets.UTF_8;
++import static org.eclipse.jgit.util.HttpSupport.ENCODING_GZIP;
++import static org.eclipse.jgit.util.HttpSupport.HDR_CONTENT_ENCODING;
+ 
+ import java.io.BufferedInputStream;
+ import java.io.IOException;
+@@ -23,6 +25,7 @@
+ import java.util.Collection;
+ import java.util.HashMap;
+ import java.util.Map;
++import java.util.zip.GZIPInputStream;
+ 
+ import org.eclipse.jgit.attributes.FilterCommand;
+ import org.eclipse.jgit.attributes.FilterCommandFactory;
+@@ -33,6 +36,7 @@
  import org.eclipse.jgit.lfs.lib.Constants;
  import org.eclipse.jgit.lib.Repository;
  import org.eclipse.jgit.transport.http.HttpConnection;
@@ -10,7 +27,7 @@ index 341188756..c269d89ac 100644
  import org.eclipse.jgit.util.HttpSupport;
  
  import com.google.gson.Gson;
-@@ -117,7 +118,9 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+@@ -117,7 +121,9 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
  	}
  
  	/**
@@ -21,7 +38,7 @@ index 341188756..c269d89ac 100644
  	 *
  	 * @param lfs
  	 *            local {@link Lfs} storage.
-@@ -131,13 +134,34 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+@@ -131,13 +137,34 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
  	 */
  	public static Collection<Path> downloadLfsResource(Lfs lfs, Repository db,
  			LfsPointer... res) throws IOException {
@@ -57,7 +74,7 @@ index 341188756..c269d89ac 100644
  		Gson gson = Protocol.gson();
  		lfsServerConn.getOutputStream()
  				.write(gson
-@@ -186,7 +210,7 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+@@ -186,7 +213,7 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
  
  				HttpConnection contentServerConn = LfsConnectionFactory
  						.getLfsContentConnection(db, downloadAction,
@@ -66,6 +83,29 @@ index 341188756..c269d89ac 100644
  
  				responseCode = contentServerConn.getResponseCode();
  				if (responseCode != HttpConnection.HTTP_OK) {
+@@ -202,7 +229,7 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+ 				}
+ 				try (InputStream contentIn = contentServerConn
+ 						.getInputStream()) {
+-					long bytesCopied = Files.copy(contentIn, path);
++					long bytesCopied = Files.copy(getInputStream(contentServerConn, contentIn), path);
+ 					if (bytesCopied != o.size) {
+ 						throw new IOException(MessageFormat.format(
+ 								LfsText.get().wrongAmoutOfDataReceived,
+@@ -217,6 +244,13 @@ private SmudgeFilter(InputStream in, OutputStream out, Repository db)
+ 		return downloadedPaths;
+ 	}
+ 
++	private static InputStream getInputStream(HttpConnection contentServerConn, InputStream contentIn) throws IOException {
++		if (ENCODING_GZIP.equals(contentServerConn.getHeaderField(HDR_CONTENT_ENCODING))) {
++			return new GZIPInputStream(contentIn);
++		}
++		return contentIn;
++	}
++
+ 	/** {@inheritDoc} */
+ 	@Override
+ 	public int run() throws IOException {
 diff --git a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java b/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
 index e221913be..c1c171d2e 100644
 --- a/org.eclipse.jgit.lfs/src/org/eclipse/jgit/lfs/internal/LfsConnectionFactory.java
